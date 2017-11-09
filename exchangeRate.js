@@ -2,7 +2,7 @@ const cheerio = require("cheerio")
 const request = require("request")
 
 const options = {
-    url: "https://www.kebhana.com/cms/rate/wpfxd651_01i_01.do?ajax=true&curCd=&tmpInqStrDt=2017-11-09&pbldDvCd=3&inqStrDt=20171109&inqKindCd=1&requestTarget=searchContentDiv",
+    url: "https://www.kebhana.com/cms/rate/wpfxd651_01i_01.do?ajax=true&pbldDvCd=3",
     headers: {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.100 Safari/537.36",
         "Connection": "keep-alive"
