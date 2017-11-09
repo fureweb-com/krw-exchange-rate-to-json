@@ -1,6 +1,6 @@
 {
   "name": "krw-exchange-rate-to-json",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Korean won exchange rate crawling program",
   "main": "exchangeRate.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/fureweb-com/krw-exchange-rate-to-json"
   },
   "author": "fureweb",
   "license": "MIT",
