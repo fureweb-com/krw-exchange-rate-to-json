@@ -62,17 +62,18 @@ const getExchangeRateDataFromWebPage = () => new Promise((resolve, reject) => {
                     case 0: result.date = target.replace(/년|월/g, "-").replace(/일/, ""); break
                     case 1: result.times = Number(target.replace(/회차/, "")); break
                     case 2: result.date = new Date(`${result.date} ${target.replace(/시|분/g, ":").replace(/초/, "")}`).getTime(); break
+                    default: break
                 }
             })
 
             // 환율정보
             $("table tr").each((index, element) => {
-                const target = $(element).text().replace(/\(100\)/, '').replace(/\n|\t/g, " ")
-                
                 // header 부분 미처리
                 if(index < 3) return
-
+                
+                const target = $(element).text().replace(/\(100\)/, '').replace(/\n|\t/g, " ")
                 const exchangeRateInfomationArray = removeEmptyArray(target.split(" "))
+
                 result.data.push(makeExchangeRateInformationMapFromArray(exchangeRateInfomationArray))
             })
             resolve(result)
