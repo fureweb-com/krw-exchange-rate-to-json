@@ -18,7 +18,7 @@ getExchangeRateDataFromWebPage().then(
 ```
 
 ## WEB API
-You can get JSON data by sending an http request with the following path: 
+You can get JSON data (without any restriction) by sending an http request with the following path: 
 
 http://api.fureweb.com/exchangeRate/
 
