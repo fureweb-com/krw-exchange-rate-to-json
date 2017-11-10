@@ -26,38 +26,38 @@ http://api.fureweb.com/exchangeRate/
 
 ### Data Format
 
-```json
+```javascript
 {
-    "requestDate": "Number", // Time of request
-    "date": "Number", // Time of bank notice
-    "times": "Number", // Number of bank notifications on the day
-    "data": [
+    requestDate: "Number", // Time of request
+    date: "Number", // Time of bank notice
+    times: "Number", // Number of bank notifications on the day
+    data: [
         {
-            "countryName": "String", // literally. The rest is omitted
-            "currencyCode": "String", // ISO Code
-            "cash": {
-                "buy": {
-                    "exchangeRate": "Number",
-                    "spread": "Number" 
+            countryName: "String", // literally. The rest is omitted
+            currencyCode: "String", // ISO Code
+            cash: {
+                buy: {
+                    exchangeRate: "Number",
+                    spread: "Number" 
                 },
-                "sell": {
-                    "exchangeRate": "Number",
-                    "spread": "Number" 
+                sell: {
+                    exchangeRate: "Number",
+                    spread: "Number" 
                 }
             },
-            "remittance": {
-                "send": "Number",
-                "receive": "Number"
+            remittance: {
+                send: "Number",
+                receive: "Number"
             },
-            "travelersCheck": {
-                "buy": "Number"
+            travelersCheck: {
+                buy: "Number"
             },
-            "foreignCurrencyCheck": {
-                "sell": "Number"
+            foreignCurrencyCheck: {
+                sell: "Number"
             },
-            "tradingStandardRate": "Number", 
-            "exchangeFee": "Number",
-            "USDConversionRate": "Number" // Percentage of the exchange rate of each country relative to the US dollar
+            tradingStandardRate: "Number", 
+            exchangeFee: "Number",
+            USDConversionRate: "Number" // Percentage of the exchange rate of each country relative to the US dollar
         }
     ]
 };
