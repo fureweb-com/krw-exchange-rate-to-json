@@ -18,9 +18,49 @@ getExchangeRateDataFromWebPage().then(
 ```
 
 ## WEB API
+
+### Description
 You can get JSON data (without any restriction) by sending an http request with the following path: 
 
 http://api.fureweb.com/exchangeRate/
 
+### Data Format
+
+```json
+{
+    "requestDate": "Number", // Time of request
+    "date": "Number", // Time of bank notice
+    "times": "Number", // Number of bank notifications on the day
+    "data": [
+        {
+            "countryName": "String", // literally. The rest is omitted
+            "currencyCode": "String", // ISO Code
+            "cash": {
+                "buy": {
+                    "exchangeRate": "Number",
+                    "spread": "Number" 
+                },
+                "sell": {
+                    "exchangeRate": "Number",
+                    "spread": "Number" 
+                }
+            },
+            "remittance": {
+                "send": "Number",
+                "receive": "Number"
+            },
+            "travelersCheck": {
+                "buy": "Number"
+            },
+            "foreignCurrencyCheck": {
+                "sell": "Number"
+            },
+            "tradingStandardRate": "Number", 
+            "exchangeFee": "Number",
+            "USDConversionRate": "Number" // Percentage of the exchange rate of each country relative to the US dollar
+        }
+    ]
+};
+```
 ## License
 MIT @ [FUREWEB](https://fureweb-com.github.io)
