@@ -1,6 +1,6 @@
 {
   "name": "krw-exchange-rate-to-json",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Korean won exchange rate crawling program",
   "main": "exchangeRate.js",
   "scripts": {
