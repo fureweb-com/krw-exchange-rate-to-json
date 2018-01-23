@@ -34,13 +34,24 @@ convertCurrency('USD').then(
 http://api.fureweb.com/exchangeRate/
 
 2. 특정 화폐에 대한 환율 정보를 다음의 URL을 통해 얻어올 수 있습니다.
-http://api.fureweb.com/exchangeRate/ISO4217CODE
-**예제) 1 USD에 대한 원화 환율 정보를 얻어올 때**
+http://api.fureweb.com/exchangeRate/ISO4217CODE (ignore case)
+
+### 사용예제
+
+1. 미국 달러화에 대한 원화 환율 정보를 얻어올 때
 http://api.fureweb.com/exchangeRate/USD
 
+2. 일본 엔화에 대한 원화 환율 정보를 얻어올 때
+http://api.fureweb.com/exchangeRate/JPY
+
+### ISO 4217 코드
+아래 링크의 자료를 참고하세요.
+
+[https://en.wikipedia.org/wiki/ISO_4217](https://en.wikipedia.org/wiki/ISO_4217)
 
 ### 데이터 포맷
 
+- 전체 환율정보 (getExchangeRateDataFromWebPage)
 ```javascript
 {
     requestDate: "Number", // 요청일시
@@ -77,5 +88,15 @@ http://api.fureweb.com/exchangeRate/USD
     ]
 };
 ```
+
+- 특정 화폐 환율 정보 (convertCurrency)
+```javascript
+{
+    requestedTime: "Number", // 요청시간 Timestamp
+    sell: "Number", // 현금 살때 기준
+    buy: "Number" // 현금 팔때 기준
+}
+```
+
 ## LICENSE
 MIT @ [FUREWEB](https://fureweb-com.github.io)
