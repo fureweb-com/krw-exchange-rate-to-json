@@ -1,40 +1,55 @@
 # KRW Exchange rate to JSON
 
-The easiest way to get the won exchange rate with JSON
+고시된 환율 정보 및 특정 국가 화폐에 대한 환율 정보를 쉽고 빠르게 얻을 수 있습니다.
 
-## Installation
+## 설치
 ```
 npm install --save krw-exchange-rate-to-json
 ```
 
-## How to use
+## 사용 방법
 ```js
-const getExchangeRateDataFromWebPage = require('krw-exchange-rate-to-json');
+const {getExchangeRateDataFromWebPage, convertCurrency} = require('krw-exchange-rate-to-json')
 
+// 최종 고시된 환율 정보를 얻어올 때
 getExchangeRateDataFromWebPage().then(
     r => console.log(r),
     err => console.error(err)
-);
+)
+
+// 특정 화폐에 대한 환율 정보를 얻어올 때(현금 살때, 팔때 기준)
+// 첫번째 인자로 ISO 4217에 해당하는 화폐 코드를 전달해야 정상적인 결과를 얻을 수 있습니다.
+convertCurrency('USD').then(
+    r => console.log(r),
+    err => console.error(err)
+)
 ```
 
 ## WEB API
 
-### Description
-You can get JSON data (without any restriction) by sending an http request with the following path: 
+### 설명
+다음의 경로를 통해 언제든 필요할 때 데이터를 요청할 수 있습니다.
 
+1. 최종 고시된 환율 정보를 다음의 URL을 통해 얻어올 수 있습니다.
 http://api.fureweb.com/exchangeRate/
 
-### Data Format
+2. 특정 화폐에 대한 환율 정보를 다음의 URL을 통해 얻어올 수 있습니다.
+http://api.fureweb.com/exchangeRate/ISO4217CODE
+**예제) 1 USD에 대한 원화 환율 정보를 얻어올 때**
+http://api.fureweb.com/exchangeRate/USD
+
+
+### 데이터 포맷
 
 ```javascript
 {
-    requestDate: "Number", // Time of request
-    date: "Number", // Time of bank notice
-    times: "Number", // Number of bank notifications on the day
+    requestDate: "Number", // 요청일시
+    date: "Number", // 고시일시
+    times: "Number", // 고시회차
     data: [
         {
-            countryName: "String", // literally. The rest is omitted
-            currencyCode: "String", // ISO Code
+            countryName: "String", // 국가명
+            currencyCode: "String", // ISO 4217 Code
             cash: {
                 buy: {
                     exchangeRate: "Number",
@@ -57,10 +72,10 @@ http://api.fureweb.com/exchangeRate/
             },
             tradingStandardRate: "Number", 
             exchangeFee: "Number",
-            USDConversionRate: "Number" // Percentage of the exchange rate of each country relative to the US dollar
+            USDConversionRate: "Number" // 미화 환산율
         }
     ]
 };
 ```
-## License
+## LICENSE
 MIT @ [FUREWEB](https://fureweb-com.github.io)
