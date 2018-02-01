@@ -95,7 +95,8 @@ const convertCurrency = (to = 'USD', options = {}) => new Promise((resolve, reje
       const result = {
         requestedTime: Date.now(),
         sell: target && target.cash ? target.cash.sell.exchangeRate : null, // 하나은행에서 고시하지 않은 국가에 대한 환율정보 요청인 경우 null로 응답
-        buy: target && target.cash ? target.cash.buy.exchangeRate : null
+        buy: target && target.cash ? target.cash.buy.exchangeRate : null,
+        remittance: target && target.remittance ? target.remittance : {}
       }
       
       resolve(result)
