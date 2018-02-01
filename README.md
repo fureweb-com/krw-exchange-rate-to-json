@@ -61,28 +61,28 @@ http://api.fureweb.com/exchangeRate/JPY
         {
             countryName: "String", // 국가명
             currencyCode: "String", // ISO 4217 Code
-            cash: {
-                buy: {
+            cash: { // 현찰
+                buy: { // 살때
                     exchangeRate: "Number",
                     spread: "Number" 
                 },
-                sell: {
+                sell: { // 팔때
                     exchangeRate: "Number",
                     spread: "Number" 
                 }
             },
-            remittance: {
+            remittance: { // 송금
                 send: "Number",
                 receive: "Number"
             },
-            travelersCheck: {
+            travelersCheck: { // 여행자수표
                 buy: "Number"
             },
-            foreignCurrencyCheck: {
+            foreignCurrencyCheck: { // 외화수표
                 sell: "Number"
             },
-            tradingStandardRate: "Number", 
-            exchangeFee: "Number",
+            tradingStandardRate: "Number", // 매매 기준율
+            exchangeFee: "Number", // 환가료율
             USDConversionRate: "Number" // 미화 환산율
         }
     ]
@@ -94,7 +94,11 @@ http://api.fureweb.com/exchangeRate/JPY
 {
     requestedTime: "Number", // 요청시간 Timestamp
     sell: "Number", // 현금 살때 기준
-    buy: "Number" // 현금 팔때 기준
+    buy: "Number", // 현금 팔때 기준
+    remittance: {
+        send: "Number", // 송금 보낼때
+        receive: "Number" // 송금 받을때
+    }
 }
 ```
 
